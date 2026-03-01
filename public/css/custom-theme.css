@@ -1,0 +1,1298 @@
+/* =====================================================
+   GLOBAL
+===================================================== */
+html, body {
+    height: 100%;
+    background: #f5f7fb;
+    font-family: "Inter", sans-serif;
+}
+
+/* =====================================================
+   SIDEBAR
+===================================================== */
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 280px;
+    height: 100vh;
+    background: linear-gradient(180deg, #4f6de6, #2f46b9);
+    box-shadow: 6px 0 25px rgba(0,0,0,0.2);
+    z-index: 1050;
+    transition: transform 0.3s ease;
+}
+
+#sidebar .sidebar-wrapper,
+#sidebar .sidebar-menu,
+#sidebar .menu {
+    background: transparent !important;
+}
+
+/* HEADER */
+#sidebar .sidebar-header {
+    padding: 2rem 1.5rem;
+    border-bottom: 1px solid rgba(255,255,255,0.15);
+}
+
+#sidebar .sidebar-header h4 {
+    color: #fff;
+    font-weight: 800;
+    font-size: 1.6rem;
+}
+
+/* TITLE */
+#sidebar .sidebar-title {
+    margin: 1.4rem 1.5rem 0.8rem;
+    font-size: 0.7rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.7);
+}
+
+/* ===============================
+   SIDEBAR ITEM (FIX ICON CENTER)
+================================ */
+#sidebar .sidebar-item a {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+
+    margin: 6px 14px;
+    padding: 14px 18px;
+    border-radius: 16px;
+
+    color: rgba(255,255,255,0.95);
+    text-decoration: none;
+    transition: all 0.25s ease;
+}
+
+/* ICON */
+#sidebar .sidebar-item a i {
+    width: 22px;
+    height: 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-size: 1.2rem;
+    line-height: 1;
+}
+
+/* TEXT */
+#sidebar .sidebar-item a span {
+    line-height: 1;
+}
+
+/* ACTIVE */
+#sidebar .sidebar-item.active a {
+    background: rgba(255,255,255,0.22);
+    font-weight: 600;
+}
+
+/* HOVER */
+#sidebar .sidebar-item a:hover {
+    background: rgba(255,255,255,0.15);
+    transform: translateX(4px);
+}
+
+/* =====================================================
+   MAIN CONTENT
+===================================================== */
+#main {
+    margin-left: 280px;
+    min-height: 100vh;
+    padding: 2rem;
+}
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+/* TABLET (768px - 991px) */
+@media (max-width: 991.98px) {
+    #sidebar {
+        width: 250px;
+        transform: translateX(-100%);
+    }
+
+    #sidebar.active {
+        transform: translateX(0);
+        z-index: 1050;
+    }
+
+    #main {
+        margin-left: 0;
+        padding: 1.5rem 1rem;
+    }
+
+    .dashboard-header {
+        flex-direction: column;
+        align-items: flex-start;
+        margin-bottom: 1.5rem;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .welcome-card {
+        flex-direction: column;
+        text-align: center;
+        padding: 1.5rem;
+    }
+
+    .welcome-card h4 {
+        font-size: 1.25rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1.2rem;
+    }
+
+    .card {
+        border-radius: 16px;
+    }
+
+    .table {
+        font-size: 0.85rem;
+    }
+
+    .table td, .table th {
+        padding: 0.8rem 0.6rem;
+    }
+}
+
+/* MOBILE LANDSCAPE (576px - 767px) */
+@media (max-width: 767.98px) {
+    html, body {
+        font-size: 13px;
+    }
+
+    #sidebar {
+        width: 240px;
+    }
+
+    #main {
+        padding: 1rem;
+    }
+
+    .dashboard-container {
+        max-width: 100%;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.25rem;
+    }
+
+    .welcome-card {
+        padding: 1.25rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .welcome-card h4 {
+        font-size: 1.1rem;
+    }
+
+    .welcome-card p {
+        font-size: 0.85rem;
+    }
+
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .stat-box {
+        padding: 1.25rem 1rem;
+    }
+
+    .stat-box h6 {
+        font-size: 0.8rem;
+    }
+
+    .stat-box h3 {
+        font-size: 1.5rem;
+    }
+
+    .stat-icon {
+        width: 40px;
+        height: 40px;
+        font-size: 1.1rem;
+    }
+
+    .card {
+        border-radius: 14px;
+        box-shadow: 0 12px 25px rgba(0,0,0,0.08);
+    }
+
+    .card-header {
+        padding: 1rem;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .card-header h5 {
+        font-size: 1rem;
+        margin-bottom: 0.75rem;
+    }
+
+    .card-header .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .card-body {
+        padding: 1rem;
+    }
+
+    .table {
+        font-size: 0.8rem;
+        border-spacing: 0 6px;
+    }
+
+    .table thead th {
+        padding: 0.75rem 0.5rem;
+        font-size: 0.7rem;
+    }
+
+    .table td {
+        padding: 0.75rem 0.5rem;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .btn {
+        padding: 0.5rem 1rem;
+        font-size: 0.9rem;
+        min-height: 40px;
+    }
+
+    .btn-sm {
+        padding: 0.375rem 0.75rem;
+        min-height: 36px;
+    }
+
+    .form-control, .form-select {
+        padding: 0.75rem 0.875rem;
+        font-size: 1rem;
+        min-height: 44px;
+    }
+
+    .form-label {
+        font-size: 0.9rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .navbar {
+        padding: 0.75rem 0;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 0.95rem;
+    }
+
+    .navbar .btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.85rem;
+    }
+}
+
+/* MOBILE PORTRAIT (320px - 575px) */
+@media (max-width: 575.98px) {
+    html, body {
+        font-size: 12px;
+    }
+
+    #sidebar {
+        width: 100%;
+        max-width: 280px;
+    }
+
+    #sidebar .sidebar-header {
+        padding: 1.25rem 1rem;
+    }
+
+    #sidebar .sidebar-header h4 {
+        font-size: 1.1rem;
+    }
+
+    #sidebar .sidebar-header small {
+        font-size: 0.6rem;
+    }
+
+    #sidebar .sidebar-item {
+        margin: 0.2rem 0.5rem;
+    }
+
+    #sidebar .sidebar-item a {
+        padding: 0.75rem 0.875rem;
+        gap: 10px;
+    }
+
+    #sidebar .sidebar-item a span {
+        font-size: 0.9rem;
+    }
+
+    #main {
+        padding: 0.75rem;
+    }
+
+    .dashboard-container {
+        max-width: 100%;
+    }
+
+    .dashboard-header {
+        margin-bottom: 1rem;
+    }
+
+    .dashboard-header h2 {
+        font-size: 1.1rem;
+    }
+
+    .welcome-card {
+        padding: 1rem;
+        margin-bottom: 1.25rem;
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .welcome-card h4 {
+        font-size: 1rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-card p {
+        font-size: 0.8rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .welcome-icon {
+        display: none !important;
+    }
+
+    .stat-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin-bottom: 1.25rem;
+    }
+
+    .stat-box {
+        padding: 1rem;
+        border-radius: 12px;
+    }
+
+    .stat-box span {
+        font-size: 0.75rem;
+        color: #64748b;
+    }
+
+    .stat-box h3 {
+        font-size: 1.4rem;
+        margin: 0.4rem 0;
+    }
+
+    .stat-icon {
+        width: 36px;
+        height: 36px;
+        font-size: 1rem;
+        bottom: 12px;
+        right: 12px;
+    }
+
+    .card {
+        border-radius: 12px;
+        box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        margin-bottom: 1rem;
+    }
+
+    .card-header {
+        padding: 0.875rem;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .card-header h5 {
+        font-size: 0.95rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .card-header .btn {
+        width: 100%;
+        margin-top: 0.5rem;
+    }
+
+    .card-body {
+        padding: 0.875rem;
+    }
+
+    .table {
+        font-size: 0.75rem;
+        border-spacing: 0 4px;
+    }
+
+    .table thead th {
+        padding: 0.6rem 0.4rem;
+        font-size: 0.65rem;
+        letter-spacing: 0;
+    }
+
+    .table tbody tr {
+        border-radius: 8px;
+    }
+
+    .table td {
+        padding: 0.6rem 0.4rem;
+    }
+
+    .table td:first-child {
+        border-radius: 8px 0 0 8px;
+    }
+
+    .table td:last-child {
+        border-radius: 0 8px 8px 0;
+    }
+
+    .table-responsive {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        margin: -0.875rem;
+        padding: 0.875rem;
+    }
+
+    .badge {
+        padding: 0.35rem 0.6rem;
+        font-size: 0.7rem;
+        border-radius: 6px;
+    }
+
+    .btn {
+        padding: 0.5rem 0.875rem;
+        font-size: 0.85rem;
+        min-height: 40px;
+        border-radius: 10px;
+    }
+
+    .btn-sm {
+        padding: 0.35rem 0.65rem;
+        font-size: 0.8rem;
+        min-height: 36px;
+    }
+
+    .btn i {
+        font-size: 0.9rem;
+    }
+
+    .form-control, .form-select {
+        padding: 0.65rem 0.75rem;
+        font-size: 1rem;
+        min-height: 44px;
+        border-radius: 10px;
+    }
+
+    .form-label {
+        font-size: 0.85rem;
+        margin-bottom: 0.35rem;
+    }
+
+    .input-group {
+        border-radius: 10px;
+    }
+
+    .navbar {
+        padding: 0.6rem 0;
+    }
+
+    .navbar .container-fluid {
+        padding: 0 0.75rem;
+    }
+
+    .navbar .navbar-brand {
+        font-size: 0.9rem;
+        margin-right: 0.5rem;
+    }
+
+    .navbar .btn {
+        padding: 0.4rem 0.65rem;
+        font-size: 0.8rem;
+        margin: 0 0.25rem;
+    }
+
+    .navbar .ms-auto {
+        gap: 0.35rem;
+    }
+
+    .navbar .d-flex {
+        flex-wrap: wrap;
+    }
+
+    .progress {
+        height: 3px;
+    }
+
+    .modal-content {
+        border-radius: 12px;
+    }
+
+    .modal-header {
+        padding: 1rem;
+    }
+
+    .modal-body {
+        padding: 1rem;
+    }
+
+    .modal-footer {
+        padding: 0.75rem 1rem;
+    }
+}
+
+/* EXTRA SMALL DEVICES (< 320px) */
+@media (max-width: 319.98px) {
+    html, body {
+        font-size: 11px;
+    }
+
+    #main {
+        padding: 0.5rem;
+    }
+
+    .stat-box {
+        padding: 0.75rem;
+    }
+
+    .card {
+        border-radius: 10px;
+    }
+
+    .btn {
+        padding: 0.4rem 0.75rem;
+        font-size: 0.8rem;
+    }
+}
+
+/* =====================================================
+   CARD
+===================================================== */
+.card {
+    border-radius: 22px;
+    border: none;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+/* =====================================================
+   TABLE
+===================================================== */
+.table thead th {
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #6b7280;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* =====================================================
+   SOFT ACTION BUTTON (FIX WHITE ICON)
+===================================================== */
+.btn-warning-soft {
+    background: rgba(255,193,7,0.15);
+    border: none;
+    color: #856404;
+}
+
+.btn-warning-soft i {
+    color: #856404;
+}
+
+.btn-danger-soft {
+    background: rgba(220,53,69,0.15);
+    border: none;
+    color: #842029;
+}
+
+.btn-danger-soft i {
+    color: #842029;
+}
+
+.btn-warning-soft:hover {
+    background: rgba(255,193,7,0.25);
+}
+
+.btn-danger-soft:hover {
+    background: rgba(220,53,69,0.25);
+}
+
+/* =====================================================
+   LOGOUT BUTTON
+===================================================== */
+.btn-logout-danger {
+    background: #ef4444;
+    color: #fff;
+    border: none;
+
+    padding: 10px 20px;
+    min-height: 44px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    border-radius: 14px;
+    font-weight: 600;
+    font-size: 0.95rem;
+
+    box-shadow: 0 10px 25px rgba(239,68,68,0.35);
+    transition: all 0.25s ease;
+}
+
+.btn-logout-danger i {
+    font-size: 1.1rem;
+    line-height: 1;
+}
+
+.btn-logout-danger:hover {
+    background: #dc2626;
+    transform: translateY(-1px);
+    box-shadow: 0 14px 30px rgba(239,68,68,0.45);
+}
+
+/* =====================================================
+   AUTH (LOGIN & REGISTER)
+===================================================== */
+.auth-wrapper {
+    min-height: 100vh;
+    background: linear-gradient(135deg,#eef2ff,#ffffff);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.auth-card {
+    max-width: 1000px;
+    width: 100%;
+    display: flex;
+    border-radius: 26px;
+    overflow: hidden;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.15);
+    animation: fadeScale 0.6s ease;
+}
+
+@keyframes fadeScale {
+    from { opacity: 0; transform: scale(0.95); }
+    to   { opacity: 1; transform: scale(1); }
+}
+
+.auth-left {
+    flex: 1;
+    padding: 3.5rem;
+}
+
+.auth-left h2 {
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.auth-left .form-control {
+    border-radius: 12px;
+    padding: 12px 14px;
+}
+
+.auth-left .btn-primary {
+    background: #4f6de6;
+    border-radius: 14px;
+    border: none;
+    padding: 12px;
+}
+
+.auth-right {
+    flex: 1;
+    background: linear-gradient(135deg,#4f6de6,#2f46b9);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 3rem;
+}
+
+@media (max-width: 992px) {
+    .auth-card {
+        flex-direction: column;
+    }
+    .auth-right {
+        display: none;
+    }
+}
+/* =====================================================
+   DASHBOARD
+===================================================== */
+.dashboard-container {
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ================= HEADER ================= */
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2.5rem;
+}
+
+.dashboard-header h2 {
+    font-weight: 800;
+    font-size: 1.9rem;
+    color: #1e3a8a;
+}
+
+/* ================= WELCOME CARD ================= */
+.welcome-card {
+    background: linear-gradient(135deg, #ffffff, #eef3ff);
+    border-radius: 24px;
+    padding: 2.2rem 2.6rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    box-shadow: 0 25px 55px rgba(0,0,0,0.12);
+    margin-bottom: 2.5rem;
+}
+
+.welcome-card h4 {
+    font-weight: 800;
+    color: #1e3a8a;
+}
+
+.welcome-card p {
+    margin-top: 6px;
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* ================= STAT GRID ================= */
+.stat-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.8rem;
+    margin-bottom: 2.5rem;
+}
+
+@media (max-width: 1200px) {
+    .stat-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .stat-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ================= STAT CARD ================= */
+.stat-box {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 1.8rem 2rem;
+    position: relative;
+    overflow: hidden;
+
+    box-shadow: 0 22px 45px rgba(0,0,0,0.1);
+    transition: transform 0.25s ease;
+}
+
+.stat-box:hover {
+    transform: translateY(-4px);
+}
+
+.stat-box h6 {
+    font-size: 0.9rem;
+    color: #64748b;
+    margin-bottom: 6px;
+}
+
+.stat-box h3 {
+    font-weight: 800;
+    color: #1e293b;
+}
+
+/* BAR BAWAH */
+.stat-box::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 6px;
+    width: 100%;
+}
+
+/* ================= ICON ================= */
+.stat-icon {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
+
+    width: 48px;
+    height: 48px;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;      /* center vertikal */
+    justify-content: center;  /* center horizontal */
+
+    font-size: 1.3rem;
+    line-height: 1;           /* ⬅️ WAJIB */
+}
+
+/* FIX ICON BOOTSTRAP */
+.stat-icon i {
+    display: block;
+    line-height: 1;
+}
+
+
+/* ================= COLORS ================= */
+.stat-blue::after { background: #3b82f6; }
+.stat-blue .stat-icon {
+    background: #dbeafe;
+    color: #1d4ed8;
+}
+
+.stat-green::after { background: #22c55e; }
+.stat-green .stat-icon {
+    background: #dcfce7;
+    color: #166534;
+}
+
+.stat-orange::after { background: #f59e0b; }
+.stat-orange .stat-icon {
+    background: #fef3c7;
+    color: #92400e;
+}
+
+.stat-red::after { background: #ef4444; }
+.stat-red .stat-icon {
+    background: #fee2e2;
+    color: #991b1b;
+}
+
+/* ================= INFO CARD ================= */
+.info-card {
+    background: #ffffff;
+    border-radius: 22px;
+    padding: 2rem 2.4rem;
+    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+}
+
+.info-card h5 {
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 8px;
+}
+
+.info-card p {
+    color: #64748b;
+    font-size: 0.95rem;
+}
+
+/* HEADER ICON + TEXT CENTER FIX */
+.card-title-inline {
+    display: flex;
+    align-items: center;   /* 🔑 sejajar vertikal */
+    gap: 10px;
+
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #1e3a8a;
+}
+
+.card-title-inline i {
+    font-size: 1.4rem;
+    line-height: 1;        /* 🔑 fix ikon turun */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* pastikan TANPA background */
+    background: none !important;
+    padding: 0;
+}
+/* ================= USER CATEGORY CARD ================= */
+.category-user-card {
+    border: none;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.category-user-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 25px 55px rgba(0,0,0,0.12);
+}
+/* ICON */
+.category-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: #eef2ff;
+    color: #4f6de6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+}
+ /* RESPONSIVE FIX */
+@media (max-width: 576px) {
+    .category-user-card {
+        text-align: left;
+    }
+}
+/* ================= USER CATEGORY ICON FIX ================= */
+
+.category-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: #eef2ff;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* FIX posisi ikon bootstrap */
+.category-icon i {
+    font-size: 1.4rem;
+    color: #4f6de6;
+
+    /* INI KUNCI UTAMANYA */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* ================= USER PRODUCT CARD ================= */
+ 
+.product-card {
+    border-radius: 20px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+.product-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(79,109,230,0.25);
+}
+/* IMAGE */
+.product-image {
+    height: 180px;
+    background: #f8fafc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-image img {
+    max-height: 100%;
+    max-width: 100%;
+    object-fit: contain;
+}
+.no-image {
+    font-size: 2.2rem;
+    color: #94a3b8;
+}
+/* CATEGORY BADGE */
+.category-badge {
+    background: rgba(79,109,230,0.12);
+    color: #4f6de6;
+    font-weight: 600;
+    border-radius: 12px;
+}
+/* PRICE */
+.price {
+    font-weight: 700;
+    color: #1e3a8a;
+}
+/* ================= USER SUPPLIER CARD ================= */
+
+.supplier-card {
+    border-radius: 20px;
+    padding: 0.5rem;
+    transition: 0.3s ease;
+}
+
+.supplier-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 18px 38px rgba(79,109,230,0.25);
+}
+
+/* ICON WRAPPER */
+.supplier-icon {
+    width: 54px;
+    height: 54px;
+    border-radius: 16px;
+    background: rgba(245,158,11,0.15);
+    color: #f59e0b;
+
+    /* CENTER ICON */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ICON FIX (INI KUNCI) */
+.supplier-icon i {
+    font-size: 1.4rem;
+
+    /* Netralisir offset bootstrap-icons */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
+}
+
+/* ===============================
+   FIX USER SIDEBAR ICON COLOR
+================================ */
+
+/* Semua icon sidebar */
+#sidebar .sidebar-item a i {
+    color: rgba(255,255,255,0.95) !important;
+}
+
+/* Icon saat ACTIVE */
+#sidebar .sidebar-item.active a i {
+    color: #ffffff !important;
+}
+
+/* Icon saat HOVER */
+#sidebar .sidebar-item a:hover i {
+    color: #ffffff !important;
+}
+/* =====================================================
+   FINAL FIX - BOOTSTRAP ICON CENTERING
+===================================================== */
+
+/* STAT ICON */
+.stat-icon i {
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    line-height: 1 !important;
+
+    /* Optical centering */
+    transform: translateY(1px);
+}
+
+/* CATEGORY ICON */
+.category-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1 !important;
+    transform: translateY(1px);
+}
+
+/* SUPPLIER ICON */
+.supplier-icon i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1 !important;
+    transform: translateY(1px);
+}
+
+/* SIDEBAR ICON */
+#sidebar .sidebar-item a i {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1 !important;
+}
+
+/* =====================================================
+   PREMIUM ENHANCEMENTS
+===================================================== */
+
+/* Logo Icon Animation */
+.logo-icon {
+    background: rgba(255, 255, 255, 0.2);
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+}
+
+#sidebar .sidebar-header:hover .logo-icon {
+    transform: rotate(-10deg) scale(1.1);
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Glassmorphism for Sidebar Items */
+#sidebar .sidebar-item.active a {
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Better Card Shadows and Borders */
+.card {
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    box-shadow: 0 25px 50px rgba(0, 0, 0, 0.12);
+}
+
+/* Modern Table Styling */
+.table {
+    border-collapse: separate;
+    border-spacing: 0 8px;
+}
+
+.table tr {
+    transition: all 0.2s ease;
+}
+
+.table tbody tr {
+    background-color: #fff;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
+}
+
+.table tbody tr:hover {
+    transform: scale(1.005);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    background-color: #fafafa;
+}
+
+.table td, .table th {
+    border: none;
+    padding: 1.2rem 1rem;
+}
+
+.table td:first-child {
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 12px;
+}
+
+.table td:last-child {
+    border-top-right-radius: 12px;
+    border-bottom-right-radius: 12px;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #94a3b8;
+}
+
+/* Welcome Card Enhancement */
+.welcome-card {
+    position: relative;
+    overflow: hidden;
+    border: none;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f4ff 100%);
+}
+
+.welcome-card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(79, 109, 230, 0.05) 0%, transparent 70%);
+    border-radius: 50%;
+}
+
+/* Button Premium Feel */
+.btn {
+    border-radius: 12px;
+    padding: 10px 20px;
+    font-weight: 600;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4f6de6 0%, #3b5bdb 100%);
+    box-shadow: 0 10px 20px rgba(79, 109, 230, 0.2);
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(79, 109, 230, 0.3);
+}
+
+/* =====================================================
+   TABLE ENHANCEMENTS (SPECIFIC)
+===================================================== */
+.category-table tbody tr, .product-table tbody tr {
+    border-radius: 12px;
+    margin-bottom: 10px;
+    display: table-row;
+}
+
+.table-row-soft {
+    background: #ffffff;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s ease;
+}
+
+.table-row-soft:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+    background: #fcfdff;
+}
+
+/* Badge Styling */
+.badge {
+    padding: 6px 12px;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.bg-primary { background: linear-gradient(135deg, #4f6de6, #3b5bdb) !important; }
+.bg-success { background: linear-gradient(135deg, #10b981, #059669) !important; }
+.bg-warning { background: linear-gradient(135deg, #f59e0b, #d97706) !important; }
+.bg-danger { background: linear-gradient(135deg, #ef4444, #dc2626) !important; }
+
+/* Form Control Premium */
+.form-control, .form-select {
+    border-radius: 12px;
+    padding: 12px 16px;
+    border: 1px solid #e2e8f0;
+    transition: all 0.3s ease;
+}
+
+.form-control:focus, .form-select:focus {
+    border-color: #4f6de6;
+    box-shadow: 0 0 0 4px rgba(79, 109, 230, 0.1);
+}

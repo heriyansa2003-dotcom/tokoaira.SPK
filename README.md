@@ -118,8 +118,3 @@ File ini adalah tampilan Blade yang menampilkan hasil perhitungan AHP dalam bent
 #### `resources/views/layouts/sidebar.blade.php`
 
 Menu navigasi untuk fitur AHP telah ditambahkan ke sidebar admin untuk memudahkan akses.
-
----
-
-**Penulis:** Manus AI
-**Tanggal:** 11 Februari 2026
